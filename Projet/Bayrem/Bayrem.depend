@@ -1,0 +1,176 @@
+# depslib dependency file v1.0
+1364125572 source:c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\eltbin.c
+	<stdio.h>
+	<stdlib.h>
+	"ELTPRIM.h"
+
+1364077550 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\eltprim.h
+	"ELTSDD.h"
+
+1363985630 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\eltsdd.h
+	"ELTBIN.h"
+
+1363996122 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\eltbin.h
+
+1364069250 source:c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\lstdc.c
+	<stdlib.h>
+	<stdio.h>
+	"LSTPRIM.h"
+
+1364027671 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\lstprim.h
+	"ELTPRIM.h"
+	"LSTSDD.h"
+
+1363989946 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\lstsdd.h
+	"LSTDC.h"
+
+1364039130 c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\lstdc.h
+	"ELTPRIM.h"
+
+1364148339 source:c:\users\bayrem\desktop\zyed bayrem\zyed bayrem\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ELTPRIM.h"
+	"LSTPRIM.h"
+
+1364696610 source:c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\eltbin.c
+	<stdio.h>
+	<stdlib.h>
+	"ELTPRIM.h"
+
+1364629066 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\eltprim.h
+	"ELTSDD.h"
+
+1363989230 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\eltsdd.h
+	"ELTBIN.h"
+
+1364587170 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\eltbin.h
+
+1364697244 source:c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\lstdc.c
+	<stdlib.h>
+	<stdio.h>
+	"LSTPRIM.h"
+
+1364629582 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\lstprim.h
+	"ELTPRIM.h"
+	"LSTSDD.h"
+
+1363993546 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\lstsdd.h
+	"LSTDC.h"
+
+1364511947 c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\lstdc.h
+	"ELTPRIM.h"
+
+1364697244 source:c:\users\bayrem\documents\faculté\zyed bayrem\zyed bayrem\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ELTPRIM.h"
+	"LSTPRIM.h"
+
+1366705015 source:c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\eltbin.c
+	<stdio.h>
+	<stdlib.h>
+	"ELTPRIM.h"
+
+1366705015 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\eltprim.h
+	"ELTSDD.h"
+
+1363989230 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\eltsdd.h
+	"ELTBIN.h"
+
+1364587170 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\eltbin.h
+
+1366707324 source:c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\lstdc.c
+	<stdlib.h>
+	<stdio.h>
+	"LSTPRIM.h"
+
+1366707339 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\lstprim.h
+	"ELTPRIM.h"
+	"LSTSDD.h"
+
+1363993546 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\lstsdd.h
+	"LSTDC.h"
+
+1364511947 c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\lstdc.h
+	"ELTPRIM.h"
+
+1366708215 source:c:\users\bayrem\documents\faculté\2éme\asd\zyed bayrem\zyed bayrem\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ELTPRIM.h"
+	"LSTPRIM.h"
+
+1366705015 source:c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\eltbin.c
+	<stdio.h>
+	<stdlib.h>
+	"ELTPRIM.h"
+
+1366705015 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\eltprim.h
+	"ELTSDD.h"
+
+1363989230 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\eltsdd.h
+	"ELTBIN.h"
+
+1364587170 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\eltbin.h
+
+1366707324 source:c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\lstdc.c
+	<stdlib.h>
+	<stdio.h>
+	"LSTPRIM.h"
+
+1366707339 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\lstprim.h
+	"ELTPRIM.h"
+	"LSTSDD.h"
+
+1363993546 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\lstsdd.h
+	"LSTDC.h"
+
+1364511947 c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\lstdc.h
+	"ELTPRIM.h"
+
+1366708215 source:c:\users\bayrem\desktop\projet ap\projet\zyed bayrem\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ELTPRIM.h"
+	"LSTPRIM.h"
+
+1366705015 source:c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\eltbin.c
+	<stdio.h>
+	<stdlib.h>
+	"ELTPRIM.h"
+
+1366705015 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\eltprim.h
+	"ELTSDD.h"
+
+1363989230 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\eltsdd.h
+	"ELTBIN.h"
+
+1364587170 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\eltbin.h
+
+1366707324 source:c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\lstdc.c
+	<stdlib.h>
+	<stdio.h>
+	"LSTPRIM.h"
+
+1366707339 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\lstprim.h
+	"ELTPRIM.h"
+	"LSTSDD.h"
+
+1363993546 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\lstsdd.h
+	"LSTDC.h"
+
+1364511947 c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\lstdc.h
+	"ELTPRIM.h"
+
+1366708215 source:c:\users\bayrem\documents\faculté\2éme\asd\ap\projet ap\projet\zyed bayrem\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	"ELTPRIM.h"
+	"LSTPRIM.h"
+
