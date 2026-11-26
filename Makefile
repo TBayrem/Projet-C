@@ -18,3 +18,12 @@ clean:
 	rm -rf bin
 
 .PHONY: all test clean
+
+bin/benchmark: tests/benchmark.c src/binpacking.c src/binpacking.h
+	@mkdir -p bin
+	$(CC) $(CFLAGS) -o $@ tests/benchmark.c src/binpacking.c
+
+bench: bin/benchmark
+	./bin/benchmark
+
+.PHONY: bench

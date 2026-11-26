@@ -17,6 +17,7 @@ Zusätzlich berechnet das Programm die **untere Schranke** (Summe der Größen g
 ```bash
 make            # baut bin/binpacking
 make test       # baut und startet die Tests
+make bench      # Vergleich auf 1.000 Zufallsinstanzen
 ./bin/binpacking 10 4 8 1 4 2 1
 ```
 
@@ -33,9 +34,9 @@ First Fit: 2 Behaelter
 ```
 src/binpacking.[ch]   Algorithmen als Bibliothek (ohne Ein- und Ausgabe)
 src/main.c            Kommandozeilenprogramm
-tests/                Tests (Gültigkeit der Packung, Grenzfälle, ungültige Eingaben)
+tests/                Tests (Gültigkeit der Packung, Grenzfälle, ungültige Eingaben) und Vergleichslauf
 legacy_windows/       ursprünglicher Code von 2013 (Windows-Konsole, unverändert)
-docs/                 Projektbericht (Französisch)
+docs/                 Artikel, Präsentation und ursprünglicher Projektbericht (Französisch)
 ```
 
 ## Was gegenüber 2013 besser ist
@@ -44,6 +45,10 @@ docs/                 Projektbericht (Französisch)
 - Algorithmen sind von der Ausgabe getrennt und testbar
 - Eingaben werden geprüft, es gibt keine Zugriffe außerhalb der Arrays
 - Der alte Code verwendete eine verkettete Liste von Behältern. Hier genügt ein Array mit Restplatz, das ist kürzer und leichter zu prüfen.
+
+## Ergebnis des Vergleichs
+
+Auf 1.000 Zufallsinstanzen (50 Gegenstände, Größen 10 bis 60, Kapazität 100) brauchten im Mittel: untere Schranke 18,00, First Fit 19,11, First Fit Decreasing 18,34, Best Fit Decreasing 18,34 Behälter. Details im Artikel unter `docs/`.
 
 ## Grenzen
 
