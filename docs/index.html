@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bin Packing: drei Heuristiken im Vergleich</title>
+<meta name="description" content="First Fit, First Fit Decreasing und Best Fit Decreasing, umgesetzt in C und hier im Browser zum Ausprobieren.">
+<style>
+:root{--bg:#fafaf7;--fg:#1d2327;--mut:#5b6670;--card:#fff;--line:#dde1e5;--acc:#1f5fbf;--acc2:#e8f0fc;--ok:#1b7f4b;--warn:#b25e00;--bad:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#14181c;--fg:#e8ebee;--mut:#9aa6b1;--card:#1c2228;--line:#2d363e;--acc:#6aa3ff;--acc2:#1d2a3d;--ok:#4cc38a;--warn:#f0a34a;--bad:#ff8a80}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+a{color:var(--acc)}
+header.top{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);z-index:5}
+header.top nav{max-width:980px;margin:auto;padding:10px 16px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+header.top nav b{margin-right:auto}
+header.top a{text-decoration:none;font-size:14px}
+.wrap{max-width:980px;margin:auto;padding:0 16px}
+.hero{padding:48px 0 28px}
+.hero h1{font-size:clamp(26px,4.5vw,40px);line-height:1.2;margin:0 0 10px}
+.hero p.sub{font-size:18px;color:var(--mut);margin:0 0 16px;max-width:720px}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.badge{background:var(--acc2);color:var(--acc);border-radius:99px;padding:3px 12px;font-size:13px}
+.btn{display:inline-block;background:var(--acc);color:#fff;border:0;border-radius:8px;padding:9px 16px;font-size:15px;text-decoration:none;cursor:pointer}
+.btn.sec{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+section{padding:26px 0;border-top:1px solid var(--line)}
+h2{font-size:24px;margin:0 0 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h3{margin:0 0 6px;font-size:16px}
+.note{border-left:4px solid var(--warn);background:var(--card);padding:10px 14px;border-radius:0 8px 8px 0;margin:12px 0}
+.proto{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.proto label{font-size:14px;color:var(--mut)}
+.proto input[type=number],.proto input[type=text],.proto select,.proto textarea{background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font:inherit;font-size:14px}
+.proto table{border-collapse:collapse;width:100%;font-size:14px}
+.proto th,.proto td{border-bottom:1px solid var(--line);padding:6px 8px;text-align:left}
+.proto button{background:var(--acc);color:#fff;border:0;border-radius:6px;padding:7px 12px;font:inherit;font-size:14px;cursor:pointer}
+.proto button.sec{background:transparent;color:var(--acc);border:1px solid var(--acc)}
+.proto button:disabled{opacity:.4;cursor:default}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:8px 0}
+.bar{height:14px;background:var(--acc);border-radius:4px;transition:width .2s}
+.mono{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:13px}
+pre.mono{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px;overflow:auto;margin:6px 0}
+ul.clean{padding-left:20px}
+footer{padding:28px 0 48px;color:var(--mut);font-size:14px;border-top:1px solid var(--line)}
+canvas{max-width:100%}
+.good{color:var(--ok)}.warnc{color:var(--warn)}.badc{color:var(--bad)}
+</style></head><body>
+<header class="top"><nav><b>Bin-Packing-Heuristiken</b><a href="#ueberblick">Überblick</a><a href="#prototyp">Prototyp</a><a href="#grenzen">Grenzen</a><a href="#unterlagen">Unterlagen</a></nav></header>
+<main class="wrap">
+<div class="hero"><h1>Bin Packing: drei Heuristiken im Vergleich</h1><p class="sub">First Fit, First Fit Decreasing und Best Fit Decreasing, umgesetzt in C und hier im Browser zum Ausprobieren.</p>
+<div class="badges"><span class="badge">Hochschulprojekt 2013</span><span class="badge">C99 · Make</span><span class="badge">Neu aufgebaut mit Tests</span></div>
+<a class="btn" href="#prototyp">Prototyp ausprobieren</a> <a class="btn sec" href="#unterlagen">Artikel und Folien</a></div>
+<section id="ueberblick"><h2>Worum geht es?</h2><p>Beim Bin-Packing-Problem sollen Gegenstände unterschiedlicher Größe in möglichst wenige Behälter gleicher Kapazität gepackt werden. Das Problem ist NP-schwer, deshalb nutzt man schnelle Heuristiken. Das Projekt setzt drei klassische Verfahren um und berechnet zusätzlich die untere Schranke (Summe der Größen geteilt durch die Kapazität, aufgerundet), um die Güte einzuordnen.</p>
+<div class="grid" style="margin-top:14px"><div class="card"><h3>First Fit</h3><span>Jeder Gegenstand in den ersten passenden Behälter</span></div><div class="card"><h3>First Fit Decreasing</h3><span>Wie First Fit, vorher absteigend sortiert</span></div><div class="card"><h3>Best Fit Decreasing</h3><span>Absteigend sortiert, Behälter mit kleinstem passenden Restplatz</span></div><div class="card"><h3>Untere Schranke</h3><span>Ordnet ein, wie nah ein Ergebnis am Optimum liegt</span></div></div></section>
+<section id="prototyp"><h2>Prototyp: Heuristiken vergleichen</h2><p>Geben Sie die Kapazität und die Größen ein (durch Leerzeichen getrennt). Das Beispiel entspricht dem Aufruf ./bin/binpacking 10 4 8 1 4 2 1 aus dem Repository.</p>
+<div class="proto"><div class="row"><label>Kapazität <input id="cap" type="number" value="10" style="width:70px"></label><label>Größen <input id="it" type="text" value="4 8 1 4 2 1" style="width:260px"></label><button id="rn">Berechnen</button></div><div id="o"></div></div></section>
+<section id="grenzen"><h2>Grenzen und Einordnung</h2><div class='note'>Die Heuristiken liefern nicht immer das Optimum. Der Vergleichslauf im Repository (make bench) ist ein eigener Lauf auf Zufallsinstanzen und keine veröffentlichte Studie. Die Browser-Version ist eine Neuimplementierung derselben Verfahren zur Veranschaulichung.</div></section>
+<section id="unterlagen"><h2>Unterlagen</h2>
+<ul class="clean"><li><a href="Artikel_Bin_Packing_Heuristiken.pdf">Fachartikel (PDF)</a> mit Quellenangaben · <a href="Artikel_Bin_Packing_Heuristiken.md">Markdown</a></li>
+<li><a href="Bin_Packing_Heuristiken.pdf">Präsentation (PDF)</a></li>
+<li><a href="https://github.com/TBayrem/bin-packing-heuristiken">Repository auf GitHub</a></li></ul></section>
+</main>
+<footer><div class="wrap">Bayrem Trabelsi · M.Sc. Wirtschaftsinformatik, Hochschule Worms · <a href="https://github.com/TBayrem">github.com/TBayrem</a><br>Alle Berechnungen laufen im Browser.</div></footer>
+<script>
+
+function pack(items,cap,mode){const b=[];const arr=mode==='ff'?[...items]:[...items].sort((x,y)=>y-x);
+for(const s of arr){let t=-1;if(mode==='bfd'){let best=1e9;b.forEach((x,i)=>{const rest=cap-x.u;if(s<=rest&&rest-s<best){best=rest-s;t=i}})}else{t=b.findIndex(x=>cap-x.u>=s)}
+if(t<0){b.push({u:0,it:[]});t=b.length-1}b[t].u+=s;b[t].it.push(s)}return b}
+function go(){const cap=+document.getElementById('cap').value,it=document.getElementById('it').value.split(/[\s,;]+/).filter(Boolean).map(Number);
+const o=document.getElementById('o');if(!cap||cap<1||!it.length||it.some(x=>!(x>0)||x>cap)){o.innerHTML='<span class="badc">Bitte positive Größen eingeben, die jeweils höchstens der Kapazität entsprechen.</span>';return}
+const lb=Math.ceil(it.reduce((a,b)=>a+b,0)/cap);let h='<p>Untere Schranke: <b>'+lb+'</b> Behälter</p>';
+[['ff','First Fit'],['ffd','First Fit Decreasing'],['bfd','Best Fit Decreasing']].forEach(([m,n])=>{const b=pack(it,cap,m);h+='<h3>'+n+': '+b.length+' Behälter '+(b.length==lb?'<span class="good">(optimal)</span>':'')+'</h3>'+b.map((x,i)=>'<div class="row"><span class="mono" style="width:90px">Behälter '+(i+1)+'</span><div style="flex:1;display:flex;border:1px solid var(--line);border-radius:4px;overflow:hidden;min-width:200px;height:26px">'+x.it.map(s=>'<div style="width:'+s/cap*100+'%;background:var(--acc);border-right:2px solid var(--bg);color:#fff;font-size:12px;text-align:center;line-height:26px">'+s+'</div>').join('')+'</div><span class="mono">'+x.u+'/'+cap+'</span></div>').join('')});o.innerHTML=h}
+document.getElementById('rn').onclick=go;go();
+
+</script></body></html>

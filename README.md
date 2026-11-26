@@ -1,5 +1,7 @@
 # Bin Packing: drei Heuristiken in C
 
+**Webseite mit Prototyp zum Ausprobieren:** https://tbayrem.github.io/bin-packing-heuristiken/
+
 Umsetzung der klassischen Heuristiken für das **Bin-Packing-Problem**: Gegenstände mit verschiedenen Größen sollen in möglichst wenige Behälter gleicher Kapazität gepackt werden. Ursprünglich 2013 als Hochschulprojekt entstanden (Windows-Konsole), jetzt als portables C99-Projekt mit Tests neu aufgebaut.
 
 ## Verfahren
