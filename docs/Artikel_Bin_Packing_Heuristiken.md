@@ -6,7 +6,7 @@
 
 ## Das Problem
 
-Beim **Bin-Packing-Problem** sollen Gegenstände mit verschiedenen Größen in möglichst wenige Behälter mit fester Kapazität gepackt werden. Es taucht überall auf, wo Ressourcen verteilt werden: Speicher, Ladeflächen, Aufgaben auf Maschinen. Das Problem ist NP-schwer, deshalb nutzt man Heuristiken.
+Beim **Bin-Packing-Problem** sollen Gegenstände mit verschiedenen Größen in möglichst wenige Behälter mit fester Kapazität gepackt werden. Es taucht überall auf, wo Ressourcen verteilt werden: Speicher, Ladeflächen, Aufgaben auf Maschinen. Das Problem ist NP-schwer, deshalb nutzt man Heuristiken. Die Analyse von First Fit und First Fit Decreasing geht auf [1] zurück, einen Überblick gibt [2].
 
 ## Drei Heuristiken
 
@@ -55,6 +55,13 @@ Ich habe die drei Verfahren auf 1.000 zufällig erzeugten Instanzen verglichen: 
 1. **Einfache Vorverarbeitung wirkt.** Das Sortieren kostet fast nichts und spart messbar Behälter.
 2. **Algorithmen von der Ausgabe trennen.** Erst dadurch lassen sie sich testen und vergleichen.
 3. **Viele Instanzen schlagen ein Beispiel.** Aus einem einzelnen Beispiel hätte ich nicht gesehen, dass FF nie besser war als FFD.
+
+## Quellen
+
+1. Johnson, D. S. (1974): Fast algorithms for bin packing. Journal of Computer and System Sciences 8(3), S. 272–314. https://doi.org/10.1016/S0022-0000(74)80026-7
+2. Coffman, E. G., Garey, M. R., Johnson, D. S. (1997): Approximation algorithms for bin packing: a survey. In: Hochbaum, D. S. (Hrsg.): Approximation Algorithms for NP-Hard Problems. Boston: PWS, S. 46–93.
+
+*Hinweis: Preise, Herstellerangaben und Aussagen zu Produkten geben den Stand der jeweiligen Studienarbeit wieder. Alle Links wurden zuletzt im November 2026 gesucht oder abgerufen; Quellen mit dem Vermerk "wie in der Studienarbeit zitiert" sind dort im Literaturverzeichnis nachzuschlagen.*
 
 ---
 
